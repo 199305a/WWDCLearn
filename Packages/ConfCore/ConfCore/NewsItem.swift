@@ -15,7 +15,7 @@ public enum NewsType:Int {
 }
 
 
-public class NewsItem: Object,ConditionallyDecodable {
+public class NewsItem: Object, ConditionallyDecodable {
      @objc public dynamic var identifier = ""
     @objc public dynamic var newsType = 0
     @objc public dynamic var visibility = ""
@@ -38,12 +38,13 @@ public class NewsItem: Object,ConditionallyDecodable {
             throw ConditionallyDecodableError.unsupported
         }
         identifier = try container.decode(key: .id)
+
         title = try container.decode(key: .title)
-        body = try container.decodeIfPresent(key: .body) ?? ""
-        visibility = try container.decodeIfPresent(key: .visibility) ?? ""
-        date = Date(timeIntervalSince1970: try container.decode(key: .timestamp))
-        try container.decodeIfPresent([Photo].self, forKey: .photos).map { photos.append(objectsin: $0)}
-        self.newsType = self.photos.count > 0 ? NewsType.gallery.rawValue : NewsType.news.rawValue
+//        body = try container.decodeIfPresent(key: .body) ?? ""
+//        visibility = try container.decodeIfPresent(key: .visibility) ?? ""
+//        date = Date(timeIntervalSince1970: try container.decode(key: .timestamp))
+//        try container.decodeIfPresent([Photo].self, forKey: .photos).map { photos.append(objectsin: $0)}
+//        self.newsType = self.photos.count > 0 ? NewsType.gallery.rawValue : NewsType.news.rawValue
 
     }
    
