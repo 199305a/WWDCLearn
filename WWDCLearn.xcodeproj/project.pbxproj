@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D7EA59B826897AB200FC4622 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EA59B726897AB200FC4622 /* AppDelegate.swift */; };
-		D7EA59BA26897AB200FC4622 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EA59B926897AB200FC4622 /* ViewController.swift */; };
 		D7EA59BC26897AB400FC4622 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7EA59BB26897AB400FC4622 /* Assets.xcassets */; };
 		D7EA59BF26897AB400FC4622 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7EA59BD26897AB400FC4622 /* Main.storyboard */; };
 		D7EA59F826897FBA00FC4622 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EA59F726897FBA00FC4622 /* AppDelegate.swift */; };
@@ -25,15 +24,28 @@
 		D7EA5A4C2689802B00FC4622 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7EA5A4A2689802B00FC4622 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D7EA5A962689843700FC4622 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		D794CF392689953E0082459E /* Sparkle-master */ = {isa = PBXFileReference; lastKnownFileType = text; name = "Sparkle-master"; path = "Packages/Sparkle-master"; sourceTree = SOURCE_ROOT; };
+		D794CF3A268995580082459E /* ConfCore */ = {isa = PBXFileReference; lastKnownFileType = text; name = ConfCore; path = Packages/ConfCore; sourceTree = SOURCE_ROOT; };
 		D7EA59B426897AB200FC4622 /* WWDCLearn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWDCLearn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7EA59B726897AB200FC4622 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D7EA59B926897AB200FC4622 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D7EA59BB26897AB400FC4622 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7EA59BE26897AB400FC4622 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D7EA59C026897AB400FC4622 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7EA59C126897AB400FC4622 /* WWDCLearn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WWDCLearn.entitlements; sourceTree = "<group>"; };
-		D7EA59E726897F1E00FC4622 /* ConfCore */ = {isa = PBXFileReference; lastKnownFileType = text; name = ConfCore; path = Packages/ConfCore; sourceTree = SOURCE_ROOT; };
 		D7EA59F526897FBA00FC4622 /* WWDCAgent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWDCAgent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7EA59F726897FBA00FC4622 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7EA59F926897FBA00FC4622 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +97,7 @@
 				D7EA59F626897FBA00FC4622 /* WWDCAgent */,
 				D7EA5A3E2689802A00FC4622 /* WWDCAgentTestClient */,
 				D7EA59B526897AB200FC4622 /* Products */,
+				D7EA5A922689843700FC4622 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,11 +114,16 @@
 		D7EA59B626897AB200FC4622 /* WWDCLearn */ = {
 			isa = PBXGroup;
 			children = (
-				D7EA59B726897AB200FC4622 /* AppDelegate.swift */,
-				D7EA59B926897AB200FC4622 /* ViewController.swift */,
-				D7EA59BB26897AB400FC4622 /* Assets.xcassets */,
-				D7EA59BD26897AB400FC4622 /* Main.storyboard */,
-				D7EA59C026897AB400FC4622 /* Info.plist */,
+				D7EA5A87268982FE00FC4622 /* Controllers */,
+				D7EA5A86268982F900FC4622 /* Views */,
+				D7EA5A85268982F200FC4622 /* ViewModels */,
+				D7EA5A84268982E400FC4622 /* Bootstrap */,
+				D7EA5A83268982D600FC4622 /* Resources */,
+				D7EA5A82268982CE00FC4622 /* Look */,
+				D7EA5A81268982C900FC4622 /* Util */,
+				D7EA5A80268982C300FC4622 /* Helpers */,
+				D7EA5A7F268982BA00FC4622 /* Definitions */,
+				D7EA5A7E268982AB00FC4622 /* Playback Support */,
 				D7EA59C126897AB400FC4622 /* WWDCLearn.entitlements */,
 			);
 			path = WWDCLearn;
@@ -114,7 +132,8 @@
 		D7EA59E626897F0200FC4622 /* LocalDependencies */ = {
 			isa = PBXGroup;
 			children = (
-				D7EA59E726897F1E00FC4622 /* ConfCore */,
+				D794CF3A268995580082459E /* ConfCore */,
+				D794CF392689953E0082459E /* Sparkle-master */,
 			);
 			path = LocalDependencies;
 			sourceTree = "<group>";
@@ -147,6 +166,87 @@
 			path = WWDCAgentTestClient;
 			sourceTree = "<group>";
 		};
+		D7EA5A7E268982AB00FC4622 /* Playback Support */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Playback Support";
+			sourceTree = "<group>";
+		};
+		D7EA5A7F268982BA00FC4622 /* Definitions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Definitions;
+			sourceTree = "<group>";
+		};
+		D7EA5A80268982C300FC4622 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D7EA5A81268982C900FC4622 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		D7EA5A82268982CE00FC4622 /* Look */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Look;
+			sourceTree = "<group>";
+		};
+		D7EA5A83268982D600FC4622 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D7EA59BB26897AB400FC4622 /* Assets.xcassets */,
+				D7EA59BD26897AB400FC4622 /* Main.storyboard */,
+				D7EA59C026897AB400FC4622 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D7EA5A84268982E400FC4622 /* Bootstrap */ = {
+			isa = PBXGroup;
+			children = (
+				D7EA59B726897AB200FC4622 /* AppDelegate.swift */,
+			);
+			path = Bootstrap;
+			sourceTree = "<group>";
+		};
+		D7EA5A85268982F200FC4622 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		D7EA5A86268982F900FC4622 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D7EA5A87268982FE00FC4622 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D7EA5A922689843700FC4622 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -157,12 +257,15 @@
 				D7EA59B026897AB200FC4622 /* Sources */,
 				D7EA59B126897AB200FC4622 /* Frameworks */,
 				D7EA59B226897AB200FC4622 /* Resources */,
+				D7EA5A962689843700FC4622 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = WWDCLearn;
+			packageProductDependencies = (
+			);
 			productName = WWDCLearn;
 			productReference = D7EA59B426897AB200FC4622 /* WWDCLearn.app */;
 			productType = "com.apple.product-type.application";
@@ -278,7 +381,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7EA59BA26897AB200FC4622 /* ViewController.swift in Sources */,
 				D7EA59B826897AB200FC4622 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -472,7 +574,7 @@
 				CODE_SIGN_ENTITLEMENTS = WWDCLearn/WWDCLearn.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = WWDCLearn/Info.plist;
+				INFOPLIST_FILE = WWDCLearn/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -491,7 +593,7 @@
 				CODE_SIGN_ENTITLEMENTS = WWDCLearn/WWDCLearn.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = WWDCLearn/Info.plist;
+				INFOPLIST_FILE = WWDCLearn/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
