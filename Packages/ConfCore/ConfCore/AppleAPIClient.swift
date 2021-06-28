@@ -6,3 +6,10 @@
 //
 
 import Foundation 
+import Siesta
+
+public final class AppleAPIClient {
+    fileprivate var environment:Environment
+    
+    
+}

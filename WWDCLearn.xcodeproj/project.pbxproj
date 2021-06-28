@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D794CF43268998840082459E /* ConfCore in Frameworks */ = {isa = PBXBuildFile; productRef = D794CF42268998840082459E /* ConfCore */; };
+		D794CF44268998840082459E /* ConfCore in Embed Frameworks */ = {isa = PBXBuildFile; productRef = D794CF42268998840082459E /* ConfCore */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		D7EA59B826897AB200FC4622 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EA59B726897AB200FC4622 /* AppDelegate.swift */; };
 		D7EA59BC26897AB400FC4622 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7EA59BB26897AB400FC4622 /* Assets.xcassets */; };
 		D7EA59BF26897AB400FC4622 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7EA59BD26897AB400FC4622 /* Main.storyboard */; };
@@ -31,6 +33,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				D794CF44268998840082459E /* ConfCore in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -38,8 +41,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D794CF392689953E0082459E /* Sparkle-master */ = {isa = PBXFileReference; lastKnownFileType = text; name = "Sparkle-master"; path = "Packages/Sparkle-master"; sourceTree = SOURCE_ROOT; };
 		D794CF3A268995580082459E /* ConfCore */ = {isa = PBXFileReference; lastKnownFileType = text; name = ConfCore; path = Packages/ConfCore; sourceTree = SOURCE_ROOT; };
+		D794CF3F268997F70082459E /* Sparkle-master */ = {isa = PBXFileReference; lastKnownFileType = text; name = "Sparkle-master"; path = "Packages/Sparkle-master"; sourceTree = SOURCE_ROOT; };
 		D7EA59B426897AB200FC4622 /* WWDCLearn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWDCLearn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7EA59B726897AB200FC4622 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7EA59BB26897AB400FC4622 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -69,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D794CF43268998840082459E /* ConfCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,8 +136,8 @@
 		D7EA59E626897F0200FC4622 /* LocalDependencies */ = {
 			isa = PBXGroup;
 			children = (
+				D794CF3F268997F70082459E /* Sparkle-master */,
 				D794CF3A268995580082459E /* ConfCore */,
-				D794CF392689953E0082459E /* Sparkle-master */,
 			);
 			path = LocalDependencies;
 			sourceTree = "<group>";
@@ -265,6 +269,7 @@
 			);
 			name = WWDCLearn;
 			packageProductDependencies = (
+				D794CF42268998840082459E /* ConfCore */,
 			);
 			productName = WWDCLearn;
 			productReference = D7EA59B426897AB200FC4622 /* WWDCLearn.app */;
@@ -726,6 +731,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D794CF42268998840082459E /* ConfCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ConfCore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D7EA59AC26897AB200FC4622 /* Project object */;
 }
