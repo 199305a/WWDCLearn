@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import os.log
 public extension Notification.Name {
     static let WWDCEnvironmentDidChange = Notification.Name("WWDCEnvironmentDidChange")
 }
@@ -29,21 +29,54 @@ public struct Environment: Equatable {
         self.featuredSectionsPath = featuredSectionsPath
     }
 
-    public static func setCurrent(_ environment:Environment){
+    public static func setCurrent(_ environment: Environment) {
         objc_sync_enter(self)
         defer {
             objc_sync_exit(self)
         }
         let shouldNotify = (environment != Environment.current)
+        _storeEnvironment = environment
+        UserDefaults.standard.set(environment.baseURL, forKey: _storedEnvDefaultsKey)
+        if shouldNotify {
+            DispatchQueue.main.async {
+                os_log("Environment base URL: %@",log:.default,type:.info,environment.baseURL)
+                NotificationCenter.default.post(name: .WWDCEnvironmentDidChange, object: environment)
+            }
+        }
+
+
     }
 }
+
+private let _storedEnvDefaultsKey = "_confCoreEnvironmentBaseURL"
+
+private var _storeEnvironment: Environment? = Environment.readFromDefaults()
 extension Environment {
     public static let defaultCocoaHubBaseURL = "https://cocoahub.wwdc.io"
-    public static var current:Environment {
-        return .test
+
+    static func readFromDefaults() -> Environment? {
+        guard let baseURL = UserDefaults.standard.object(forKey: _storedEnvDefaultsKey) as? String else { return nil }
+        return Environment(baseURL: baseURL, cocoaHubBaseURL: Self.defaultCocoaHubBaseURL, configPath: "/config.json", sessionsPath: "/contents.json", newsPath: "/news.json", liveVideosPath: "/video_live.json", featuredSectionsPath: "/_featured.json")
     }
 
-    public static let production = Environment(baseURL: "http://api2021.wwdc.io", cocoaHubBaseURL:Self.defaultCocoaHubBaseURL, configPath: "/config.json", sessionsPath: "/contents.json", newsPath: "/news.json", liveVideosPath: "/video_live.json", featuredSectionsPath: "/_featured.json")
+    public static var current: Environment {
+        #if DEBUG
+            if let baseURL = UserDefaults.standard.string(forKey: "WWDCEnvironmentBaseURL") {
+                return Environment(baseURL: baseURL, cocoaHubBaseURL: Self.defaultCocoaHubBaseURL, configPath: "/config.json", sessionsPath: "/contents.json", newsPath: "/news.json", liveVideosPath: "/video_live.json", featuredSectionsPath: "/_featured.json")
+            }
+        #endif
+        if ProcessInfo.processInfo.arguments.contains("--test") {
+            return .test
+        } else {
+            if let stored = _storeEnvironment {
+                return stored
+            }else {
+                return .production
+            }
+        }
+    }
 
-    public static let test = Environment(baseURL: "http://localhost:9042", cocoaHubBaseURL:Self.defaultCocoaHubBaseURL, configPath: "/config.json", sessionsPath: "/contents.json", newsPath: "/news.json", liveVideosPath: "/video_live.json", featuredSectionsPath: "/_featured.json")
+    public static let production = Environment(baseURL: "http://api2021.wwdc.io", cocoaHubBaseURL: Self.defaultCocoaHubBaseURL, configPath: "/config.json", sessionsPath: "/contents.json", newsPath: "/news.json", liveVideosPath: "/video_live.json", featuredSectionsPath: "/_featured.json")
+
+    public static let test = Environment(baseURL: "http://localhost:9042", cocoaHubBaseURL: Self.defaultCocoaHubBaseURL, configPath: "/config.json", sessionsPath: "/contents.json", newsPath: "/news.json", liveVideosPath: "/video_live.json", featuredSectionsPath: "/_featured.json")
 }
